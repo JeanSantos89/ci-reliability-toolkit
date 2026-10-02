@@ -1,5 +1,7 @@
 # ci-reliability-toolkit
 
+![ci-reliability-toolkit banner](./banner.png)
+
 Seven small, independent tools for a recurring problem: CI that reports
 green without actually proving what it claims to. Each one targets a
 different way that happens — a fabricated report, a flaky test blocking
