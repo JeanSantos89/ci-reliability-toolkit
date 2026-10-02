@@ -1,0 +1,23 @@
+{
+  "name": "ci-false-green-detector",
+  "version": "0.1.0",
+  "description": "Detects CI pipelines that report success from a fabricated or empty test report",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "cfgd": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "tsx": "^4.19.0",
+    "@types/node": "^22.0.0"
+  }
+}

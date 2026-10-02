@@ -1,0 +1,16 @@
+name: "label-gate"
+description: "Outputs whether a pull request carries a given label, for gating downstream jobs"
+inputs:
+  label:
+    description: "Label to check for, e.g. run-slow-tests"
+    required: true
+  github-token:
+    description: "Token with read access to the pull request"
+    required: true
+outputs:
+  matched:
+    description: "'true' if the PR carries the label, 'false' otherwise"
+    value: ${{ steps.check.outputs.matched }}
+runs:
+  using: "node20"
+  main: "index.js"

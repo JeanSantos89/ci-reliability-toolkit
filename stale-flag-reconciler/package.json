@@ -1,0 +1,11 @@
+{
+  "name": "stale-flag-reconciler",
+  "version": "0.1.0",
+  "description": "Finds in-code pending flags (e.g. @pending:ID) whose referenced item has since been resolved, and reports them for removal",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "stale-flag": "./dist/index.js" },
+  "scripts": { "build": "tsc -p .", "dev": "tsx src/index.ts" },
+  "dependencies": { "fast-glob": "^3.3.0" },
+  "devDependencies": { "typescript": "^5.6.0", "tsx": "^4.19.0", "@types/node": "^22.0.0" }
+}

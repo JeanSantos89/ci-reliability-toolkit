@@ -1,0 +1,10 @@
+{
+  "name": "slack-ci-alert-bridge",
+  "version": "0.1.0",
+  "description": "Posts a CI job failure to a Slack channel via incoming webhook, no native Slack plugin required",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "slack-ci-alert": "./dist/index.js" },
+  "scripts": { "build": "tsc -p .", "dev": "tsx src/index.ts" },
+  "devDependencies": { "typescript": "^5.6.0", "tsx": "^4.19.0", "@types/node": "^22.0.0" }
+}

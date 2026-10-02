@@ -1,0 +1,30 @@
+name: Example conditional pipeline
+
+on:
+  pull_request:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      run-slow: ${{ steps.gate.outputs.matched }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: gate
+        uses: ./action
+        with:
+          label: run-slow-tests
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  fast-tests:
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Always runs: fast test suite"
+
+  slow-tests:
+    needs: gate
+    if: needs.gate.outputs.run-slow == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Only runs when the PR carries the run-slow-tests label"
